@@ -1,4 +1,4 @@
-# Voron2.4-350
+## Voron2.4-350
 Klipper config files for my Voron 2.4 350mm.<br/>
 Based on [AndrewEllis93](https://github.com/AndrewEllis93/v2.247_backup_klipper_config) and [Frix-x](https://github.com/Frix-x/klipper-voron-V2) Klipper Configs.<br/>
 Message me on [Discord](https://discordapp.com/users/109440012877070336) for any questions/issues.
