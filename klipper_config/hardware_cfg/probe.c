@@ -4,19 +4,29 @@
 
 [probe]
 
+#pin: ^PA3
+#x_offset: 0
+#y_offset: 21.00
+#z_offset = 6.700
+#speed: 8
+#lift_speed: 15
+#samples: 3
+#samples_result: median
+#sample_retract_dist: 2.0
+#samples_tolerance: 0.0075
+#samples_tolerance_retries: 3
+[probe]
 pin: ^PA3
 x_offset: 0
 y_offset: 21.00
-z_offset = 6.700
-#z_offset: 6.42
-speed: 8
-lift_speed: 15
-samples: 3
+#z_offset = 6.700
+lift_speed: 6
+speed: 2
+samples:5
+samples_tolerance_retries: 50
+sample_retract_dist: 0.8 #2.0
+samples_tolerance: 0.0026 #0.006 #0.01
 samples_result: median
-sample_retract_dist: 2.0
-samples_tolerance: 0.0075
-samples_tolerance_retries: 3
-
 #####################################################################
 #   Homing and Gantry Adjustment Routines
 #####################################################################
@@ -37,7 +47,7 @@ probe_switch_x: 228.20 #223.30
 probe_switch_y: 335.20 #330.40
 
 
-switch_offset: 0.450 #0.6 # Smaller number means higher nozzle to the PEI
+switch_offset: 0.465 #0.6 # Smaller number means higher nozzle to the PEI
 max_deviation: 1
 speed: 300
 probing_first_fast: true
@@ -64,14 +74,42 @@ retries: 5
 retry_tolerance: 0.005 #0.0075
 max_adjust: 10
 
+#[bed_mesh] -ORGIG
+#speed: 300
+#horizontal_move_z: 10
+#mesh_min: 40, 40
+#mesh_max: 310,310
+#probe_count: 5,5
+#mesh_pps: 2, 2
+#algorithm: bicubic
+# relative_reference_index = ()(x points * y points) - 1) / 2
+#relative_reference_index: 12
 [bed_mesh]
-speed: 300
-horizontal_move_z: 10
 mesh_min: 40, 40
 mesh_max: 310,310
+mesh_pps: 2,2
+#######################
+[bed_mesh]
+speed: 300
+#### DO NOT USE THOSE UNLESS YOU REALLY REALLY KNOW WHAT YOU ARE DOING
+#### mesh_min: 9,12
+#### mesh_max: 339,335
+
+move_check_distance: 3
+split_delta_z: .01
+bicubic_tension: 0.2
+
+# klicky probe 6.17 + desired distance
+horizontal_move_z: 10.17
+
+fade_start: 0.26
+fade_end: 1.77
+
 #probe_count: 5,5
-probe_count: 5,5
-mesh_pps: 2, 2
+probe_count: 7,7
 algorithm: bicubic
-# relative_reference_index = ()(x points * y points) - 1) / 2
-relative_reference_index: 12
+
+# for 5x5
+#relative_reference_index: 21
+# for 7x7
+relative_reference_index: 44
